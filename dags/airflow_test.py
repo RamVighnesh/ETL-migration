@@ -1,4 +1,4 @@
-"""A liveness prober dag for monitoring composer.googleapis.com/environment/healthy ."""
+"""A liveness prober dag for monitoring composer.googleapis.com/environment/healthy."""
 import datetime
 
 from airflow import DAG
