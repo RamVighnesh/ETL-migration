@@ -1,0 +1,41 @@
+#ci/cd pipeline is run on kubernetes a shared pod in started and each stages is run
+#define the stages in pipeline here
+stages:
+  - build
+  - test
+  - deploy
+
+#each stage is defined here and pre defined image is pulled and used - is used to run commands
+build:
+  stage: build
+  image: python:3.9-slim
+  script:
+    - python --version
+    - pip install -q pytest
+    - echo "Build stage complete."
+
+test:
+  stage: test
+  image: python:3.9-slim
+  script:
+    - apt-get update -y && apt-get install -y git 
+    - python test_line.py
+    - echo "Test stage complete."
+  only:
+  - merge_requests
+
+deploy:
+  stage: deploy
+  image: google/cloud-sdk:latest
+  script:
+    - echo $GCLOUD_KEY > gcp_key.json
+    - cat ggcp_key.json
+    - gcloud auth activate-service-account --key-file=gcp_key.json
+    - gsutil -m rsync -r dags/ us-central1-tests-3b5f7783-bucket/dags/
+    - echo "connection succesfull"
+  only:
+    refs:
+      - main
+      # - merge_requests  # Trigger on merge requests
+    changes:
+      - dags/*  # Trigger job only if files in the dags/ directory change
