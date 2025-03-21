@@ -31,7 +31,7 @@ deploy:
     - echo $gcp_key > gcp_key.json
     - cat gcp_key.json
     - gcloud auth activate-service-account --key-file=gcp_key.json
-    - gsutil -m rsync -r dags/ us-central1-tests-3b5f7783-bucket/dags/
+    - gsutil -m rsync -r dags/ us-central1-tests-3b5f7783-bucket/dags
     - echo "connection succesfull"
   only:
     refs:
