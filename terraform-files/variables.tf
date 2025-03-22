@@ -9,7 +9,7 @@ variable "region" {
   default     = "us-central1"
 }
 
-varaible "backend_bucket" {
+variable "backend_bucket" {
     type        = string
     description = "backend bucket to store terraform state"
     default     = "backend-teraform"
