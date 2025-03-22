@@ -6,6 +6,10 @@ stages:
   - deploy
   - teraform
 
+#vars used in the pipeline
+variables:
+  PROJECT_ID: "project-beta-000002"
+
 #each stage is defined here and pre defined image is pulled and used - is used to run commands
 build:
   stage: build
