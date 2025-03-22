@@ -66,6 +66,8 @@ teraform:
     #teraform init,plan,apply
     - gcloud auth activate-service-account --key-file=gcp-key.json
     - gcloud config set project $PROJECT_ID
+    - ls -l
+    - find . -name "*.tf"
     - cd terraform
     - terraform init
     - terraform providers
