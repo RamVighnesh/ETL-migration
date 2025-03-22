@@ -6,6 +6,7 @@ resource "google_storage_bucket" "pilot_bucket" {
   versioning {
     enabled = true
   }
+  
 
   labels = local.labels
 }
