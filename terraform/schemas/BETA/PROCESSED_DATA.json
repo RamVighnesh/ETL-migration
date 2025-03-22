@@ -1,0 +1,18 @@
+{
+    "schema": {
+      "fields": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "timestamp",
+          "type": "TIMESTAMP"
+        }
+      ]
+    }
+  }

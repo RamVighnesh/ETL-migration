@@ -4,6 +4,7 @@ stages:
   - build
   - test
   - deploy
+  - teraform
 
 #each stage is defined here and pre defined image is pulled and used - is used to run commands
 build:
@@ -31,7 +32,7 @@ deploy:
     - echo $gcp_key > gcp_key.json
     - cat gcp_key.json
     - gcloud auth activate-service-account --key-file=gcp_key.json
-    - gsutil -m rsync -r dags/ gs://us-central1-tests-3b5f7783-bucket/dags/
+    - gsutil -m rsync -r dags/ gs://$gcp_composer1_bucket/dags/
     - echo "connection succesfull"
   only:
     refs:
@@ -39,3 +40,34 @@ deploy:
       # - merge_requests  # Trigger on merge requests
     changes:
       - dags/*  # Trigger job only if files in the dags/ directory change
+
+
+teraform:
+  stage: teraform
+  image: google/cloud-sdk:latest
+  script:
+    - echo "$gcp_key" > gcp-key.json
+    - chmod 644 gcp-key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/gcp-key.json
+    # Clean previous Terraform setup
+    - rm -rf .terraform  # Remove old Terraform modules
+    - rm -f .terraform.lock.hcl  # Remove old dependency lock file
+    - apt-get update && apt-get install -y curl unzip  # Install required dependencies
+    # - curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip
+    - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
+    # - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.11.2/terraform_1.11.2_linux_amd64.zip
+    - unzip terraform.zip && mv terraform /usr/local/bin/
+    - terraform --version
+    #teraform init,plan,apply
+    - gcloud auth activate-service-account --key-file=gcp-key.json
+    - gcloud config set project $PROJECT_ID
+    - terraform init
+    - terraform providers
+    - terraform plan -out=tfplan
+    - terraform apply -auto-approve tfplan
+  only:
+    refs:
+      - main
+      # - merge_requests  # Trigger on merge requests
+    changes:
+      - terraform/*  # Trigger job only if files in the dags/ directory change
