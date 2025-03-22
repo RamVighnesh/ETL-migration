@@ -68,7 +68,7 @@ teraform:
     - gcloud auth activate-service-account --key-file=gcp-key.json
     - gcloud config set project $PROJECT_ID
     - ls -lR
-    - cd /builds/data-migration4/project-beta-000002/terraform
+    - cd /builds/data-migration4/project-beta-000002/terraform-files
     - ls -l
     - terraform init
     - terraform providers
