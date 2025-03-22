@@ -56,7 +56,7 @@ teraform:
     # - curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip
     - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
     # - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.11.2/terraform_1.11.2_linux_amd64.zip
-    - unzip terraform.zip && mv terraform /usr/local/bin/
+    - unzip -o terraform.zip && mv terraform /usr/local/bin/
     - terraform --version
     #teraform init,plan,apply
     - gcloud auth activate-service-account --key-file=gcp-key.json
