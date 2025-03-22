@@ -67,10 +67,6 @@ teraform:
     #teraform init,plan,apply
     - gcloud auth activate-service-account --key-file=gcp-key.json
     - gcloud config set project $PROJECT_ID
-    - ls -lR
-    - find . -name "*.tf" 
-    - cd /builds/data-migration4/project-beta-000002/terraform
-    - ls -l
     - terraform init
     - terraform providers
     - terraform plan -out=tfplan
@@ -80,4 +76,4 @@ teraform:
       - main
       # - merge_requests  # Trigger on merge requests
     changes:
-      - terraform/*  # Trigger job only if files in the dags/ directory change
+      - terraform-files/*  # Trigger job only if files in the dags/ directory change
