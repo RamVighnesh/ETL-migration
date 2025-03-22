@@ -5,7 +5,6 @@ module "pilot_dataset" {
   location   = var.region
   dataset_id = local.datasets.pilot_dataset
 
-
   tables = [
     for filepath in local.schemas.pilot :
     {
