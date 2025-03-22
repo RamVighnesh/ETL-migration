@@ -50,8 +50,8 @@ teraform:
     - chmod 644 gcp-key.json
     - export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/gcp-key.json
     # Clean previous Terraform setup
-    # - rm -rf .terraform  # Remove old Terraform modules
-    # - rm -f .terraform.lock.hcl  # Remove old dependency lock file
+    - rm -rf .terraform  # Remove old Terraform modules
+    - rm -f .terraform.lock.hcl  # Remove old dependency lock file
     - apt-get update && apt-get install -y curl unzip  # Install required dependencies
     # # - curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip
     - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
