@@ -50,6 +50,7 @@ teraform:
   stage: teraform
   image: google/cloud-sdk:latest
   script:
+    - git fetch --unshallow 
     - echo "$gcp_key" > gcp-key.json
     - chmod 644 gcp-key.json
     - export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/gcp-key.json
@@ -66,6 +67,8 @@ teraform:
     #teraform init,plan,apply
     - gcloud auth activate-service-account --key-file=gcp-key.json
     - gcloud config set project $PROJECT_ID
+    - ls -lR
+    - find . -name "*.tf" 
     - cd /builds/data-migration4/project-beta-000002/terraform
     - ls -l
     - terraform init
