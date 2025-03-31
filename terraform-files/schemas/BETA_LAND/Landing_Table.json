@@ -126,6 +126,13 @@
           "type": "STRING",
           "description": "Indicates if the trip data was stored and forwarded",
           "fields": []
+        },
+        {
+          "name": "event_timestamp",
+          "mode": "",
+          "type": "STRING",
+          "description": "Records the load timestamp of the row",
+          "fields": []
         }
       ]
     }
