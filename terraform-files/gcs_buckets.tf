@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "pilot_bucket" {
-  name     = "USC1_Landing_Archive"
+  name     = "USC1-Landing-Archive"
   project  = var.project_id
   location = var.region
 
