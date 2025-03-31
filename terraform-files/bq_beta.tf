@@ -15,8 +15,11 @@ module "pilot_dataset" {
 
       range_partitioning = null,
       expiration_time    = null,
-      time_partitioning  = null,
-      clustering         = [],
+      time_partitioning  = lookup(jsondecode(file(filepath)), "timePartitioning",null) != null ? {
+        field = jsondecode(file(filepath)).timePartitioning.field
+        type =  jsondecode(file(filepath)).timePartitioning.type
+      } : null,
+      clustering         = lookup(jsondecode(file(filepath)), "clustering",null) != null ? try(jsondecode(file(filepath))["clustering"]["fields"],[]) : [],
       labels             = local.labels
     }
   ]

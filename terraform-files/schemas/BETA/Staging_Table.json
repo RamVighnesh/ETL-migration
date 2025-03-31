@@ -97,5 +97,14 @@
                 "type": "FLOAT"
             }
             ]
+    },
+    "timePartitioning": {
+    "type": "DAY",
+    "field": "pickup_datetime"
+  },
+    "clustering": {
+      "fields": [
+      "vendor_id"
+        ]
     }
   }
