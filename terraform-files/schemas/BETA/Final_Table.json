@@ -47,5 +47,14 @@
                 "type": "FLOAT64"
             }
             ]
+    },
+    "timePartitioning": {
+    "type": "DAY",
+    "field": "report_date"
+  },
+    "clustering": {
+      "fields": [
+      "report_date"
+        ]
     }
-  }
+}
