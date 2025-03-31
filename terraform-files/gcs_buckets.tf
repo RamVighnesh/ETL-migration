@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "pilot_bucket" {
-  name     = "my-unique-prefix-${local.buckets.pilot_bucket}"
+  name     = "USC1_Landing_Archive"
   project  = var.project_id
   location = var.region
 
