@@ -1,0 +1,51 @@
+{
+    "schema": {
+      "fields": [
+            {
+                "description": "Date of the report (based on pickup_datetime)",
+                "name": "report_date",
+                "type": "DATE"
+            },
+            {
+                "description": "Total number of trips",
+                "name": "total_trips",
+                "type": "INT64"
+            },
+            {
+                "description": "Sum of passengers across trips",
+                "name": "total_passengers",
+                "type": "INT64"
+            },
+            {
+                "description": "Sum of fare amounts",
+                "name": "total_fare",
+                "type": "FLOAT64"
+            },
+            {
+                "description": "Average trip distance",
+                "name": "average_trip_distance",
+                "type": "FLOAT64"
+            },
+            {
+                "description": "Average trip duration in minutes",
+                "name": "average_trip_duration",
+                "type": "FLOAT64"
+            },
+            {
+                "description": "Average speed across trips (mph)",
+                "name": "average_speed",
+                "type": "FLOAT64"
+            },
+            {
+                "description": "Maximum trip distance for the day",
+                "name": "max_trip_distance",
+                "type": "FLOAT64"
+            },
+            {
+                "description": "Minimum trip distance for the day",
+                "name": "min_trip_distance",
+                "type": "FLOAT64"
+            }
+            ]
+    }
+  }

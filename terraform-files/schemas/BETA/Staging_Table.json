@@ -1,0 +1,101 @@
+{
+    "schema": {
+      "fields": [
+            {
+                "description": "Inherited unique identifier",
+                "name": "record_id",
+                "type": "STRING"
+            },
+            {
+                "description": "Cleaned taxi vendor ID",
+                "name": "vendor_id",
+                "type": "STRING"
+            },
+            {
+                "description": "Validated pickup time",
+                "name": "pickup_datetime",
+                "type": "TIMESTAMP"
+            },
+            {
+                "description": "Validated dropoff time",
+                "name": "dropoff_datetime",
+                "type": "TIMESTAMP"
+            },
+            {
+                "description": "Validated passenger count",
+                "name": "passenger_count",
+                "type": "INTEGER"
+            },
+            {
+                "description": "Validated trip distance",
+                "name": "trip_distance",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned pickup longitude",
+                "name": "pickup_longitude",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned pickup latitude",
+                "name": "pickup_latitude",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned dropoff longitude",
+                "name": "dropoff_longitude",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned dropoff latitude",
+                "name": "dropoff_latitude",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned fare amount",
+                "name": "fare_amount",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned extra charges",
+                "name": "extra",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned MTA tax",
+                "name": "mta_tax",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned tip amount",
+                "name": "tip_amount",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned tolls amount",
+                "name": "tolls_amount",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Cleaned total amount",
+                "name": "total_amount",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Standardized payment type",
+                "name": "payment_type",
+                "type": "STRING"
+            },
+            {
+                "description": "Calculated duration in minutes (dropoff - pickup)",
+                "name": "trip_duration_minutes",
+                "type": "FLOAT"
+            },
+            {
+                "description": "Calculated average speed (trip_distance / trip_duration)",
+                "name": "average_speed_mph",
+                "type": "FLOAT"
+            }
+            ]
+    }
+  }
