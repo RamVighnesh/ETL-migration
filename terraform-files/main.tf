@@ -12,8 +12,9 @@ locals {
   }
 
   datasets = {
-  pilot_dataset = "BETA_DATASET"
-  pilot_dataset_stg = "BETA_STG_DATASET"
+  pilot_dataset = "BETA"
+  pilot_dataset_stg = "BETA_STG"
+  pilot_dataset_land = "BETA_LANDING"
   }
 
   buckets ={
@@ -23,6 +24,7 @@ locals {
   schemas = {
     pilot = fileset(path.module, "./schemas/BETA/*.json")
     pilot_stg = fileset(path.module, "./schemas/BETA_STG/*.json")
+    pilot_land = fileset(path.module, "./schemas/BETA_LAND/*.json")
   }
 
   admins = {

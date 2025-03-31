@@ -1,0 +1,132 @@
+{
+    "schema": {
+      "fields":[
+        {
+          "name": "record_id",
+          "mode": "",
+          "type": "STRING",
+          "description": "Unique identifier for each record",
+          "fields": []
+        },
+        {
+          "name": "vendor_id",
+          "mode": "",
+          "type": "STRING",
+          "description": "ID of the taxi vendor",
+          "fields": []
+        },
+        {
+          "name": "pickup_datetime",
+          "mode": "",
+          "type": "TIMESTAMP",
+          "description": "Timestamp when the trip started",
+          "fields": []
+        },
+        {
+          "name": "dropoff_datetime",
+          "mode": "",
+          "type": "TIMESTAMP",
+          "description": "Timestamp when the trip ended",
+          "fields": []
+        },
+        {
+          "name": "passenger_count",
+          "mode": "",
+          "type": "INTEGER",
+          "description": "Number of passengers",
+          "fields": []
+        },
+        {
+          "name": "trip_distance",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Distance of the trip in miles",
+          "fields": []
+        },
+        {
+          "name": "pickup_longitude",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Longitude of pickup location",
+          "fields": []
+        },
+        {
+          "name": "pickup_latitude",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Latitude of pickup location",
+          "fields": []
+        },
+        {
+          "name": "dropoff_longitude",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Longitude of dropoff location",
+          "fields": []
+        },
+        {
+          "name": "dropoff_latitude",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Latitude of dropoff location",
+          "fields": []
+        },
+        {
+          "name": "fare_amount",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Fare charged for the trip",
+          "fields": []
+        },
+        {
+          "name": "extra",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Extra charges",
+          "fields": []
+        },
+        {
+          "name": "mta_tax",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "MTA tax",
+          "fields": []
+        },
+        {
+          "name": "tip_amount",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Tip amount",
+          "fields": []
+        },
+        {
+          "name": "tolls_amount",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Tolls amount",
+          "fields": []
+        },
+        {
+          "name": "total_amount",
+          "mode": "",
+          "type": "FLOAT",
+          "description": "Total amount charged",
+          "fields": []
+        },
+        {
+          "name": "payment_type",
+          "mode": "",
+          "type": "STRING",
+          "description": "Payment method used (e.g., card, cash)",
+          "fields": []
+        },
+        {
+          "name": "store_and_fwd_flag",
+          "mode": "",
+          "type": "STRING",
+          "description": "Indicates if the trip data was stored and forwarded",
+          "fields": []
+        }
+      ]
+    }
+  }
