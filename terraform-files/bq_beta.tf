@@ -18,6 +18,8 @@ module "pilot_dataset" {
       time_partitioning  = lookup(jsondecode(file(filepath)), "timePartitioning",null) != null ? {
         field = jsondecode(file(filepath)).timePartitioning.field
         type =  jsondecode(file(filepath)).timePartitioning.type
+        expiration_ms = null
+        require_partition_filter = false
       } : null,
       clustering         = lookup(jsondecode(file(filepath)), "clustering",null) != null ? try(jsondecode(file(filepath))["clustering"]["fields"],[]) : [],
       labels             = local.labels
