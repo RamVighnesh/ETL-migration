@@ -18,98 +18,98 @@
         {
           "name": "pickup_datetime",
           "mode": "",
-          "type": "TIMESTAMP",
+          "type": "STRING",
           "description": "Timestamp when the trip started",
           "fields": []
         },
         {
           "name": "dropoff_datetime",
           "mode": "",
-          "type": "TIMESTAMP",
+          "type": "STRING",
           "description": "Timestamp when the trip ended",
           "fields": []
         },
         {
           "name": "passenger_count",
           "mode": "",
-          "type": "INTEGER",
+          "type": "STRING",
           "description": "Number of passengers",
           "fields": []
         },
         {
           "name": "trip_distance",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Distance of the trip in miles",
           "fields": []
         },
         {
           "name": "pickup_longitude",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Longitude of pickup location",
           "fields": []
         },
         {
           "name": "pickup_latitude",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Latitude of pickup location",
           "fields": []
         },
         {
           "name": "dropoff_longitude",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Longitude of dropoff location",
           "fields": []
         },
         {
           "name": "dropoff_latitude",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Latitude of dropoff location",
           "fields": []
         },
         {
           "name": "fare_amount",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Fare charged for the trip",
           "fields": []
         },
         {
           "name": "extra",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Extra charges",
           "fields": []
         },
         {
           "name": "mta_tax",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "MTA tax",
           "fields": []
         },
         {
           "name": "tip_amount",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Tip amount",
           "fields": []
         },
         {
           "name": "tolls_amount",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Tolls amount",
           "fields": []
         },
         {
           "name": "total_amount",
           "mode": "",
-          "type": "FLOAT",
+          "type": "STRING",
           "description": "Total amount charged",
           "fields": []
         },
