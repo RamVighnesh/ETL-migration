@@ -95,6 +95,12 @@
                 "description": "Calculated average speed (trip_distance / trip_duration)",
                 "name": "average_speed_mph",
                 "type": "FLOAT"
+            },
+            {
+              "name": "event_timestamp",
+              "mode": "",
+              "type": "TIMESTAMP",
+              "description": "Records the load timestamp of the row"
             }
             ]
     },
