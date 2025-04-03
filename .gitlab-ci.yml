@@ -94,7 +94,7 @@ cf_file_sync:
     - echo $gcp_key > gcp_key.json
     - cat gcp_key.json
     - gcloud auth activate-service-account --key-file=gcp_key.json
-    - gsutil -m rsync -r cloud-function-files/ gs://gcp_cloudrun_f_bucket/services/
+    - gsutil -m rsync -r cloud-function-files/ gs://$gcp_cloudrun_f_bucket/services/
     - echo "connection succesfull"
   only:
     refs:
