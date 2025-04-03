@@ -101,4 +101,4 @@ cf_file_sync:
       - main
       # - merge_requests  # Trigger on merge requests
     changes:
-      - cloud-function-files/*  # Trigger job only if files in the dags/ directory change
+      - cloud-function-files/**  # Trigger job only if files in the dags/ directory change
