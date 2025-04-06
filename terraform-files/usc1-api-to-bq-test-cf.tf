@@ -25,7 +25,7 @@ resource "google_cloudfunctions2_function" "default" {
     source {
       storage_source {
         bucket = "run-sources-project-beta-000002-us-central1"
-        object = google_storage_bucket_object.object.name
+        object = "services/usc1-api-to-bq-test/86541697314.zip"
       }
     }
   }
