@@ -20,7 +20,7 @@ resource "google_cloudfunctions2_function" "default" {
   description = "test through terraform"
 
   build_config {
-    runtime     = "python3.12"
+    runtime     = "python312"
     entry_point = "hello_http" # Set the entry point
     source {
       storage_source {
