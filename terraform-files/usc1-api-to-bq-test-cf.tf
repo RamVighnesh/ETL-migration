@@ -8,11 +8,7 @@ terraform {
 }
 
 
-resource "google_storage_bucket_object" "object" {
-  name   = "86541697314.zip"
-  bucket = "run-sources-project-beta-000002-us-central1"
-  source = "services/usc1-api-to-bq-test/" # Add path to the zipped function source code
-}
+
 
 resource "google_cloudfunctions2_function" "default" {
   name        = "usc1-api-to-bq-test"
@@ -31,8 +27,10 @@ resource "google_cloudfunctions2_function" "default" {
   }
 
   service_config {
+    min_instance_count = 0
     max_instance_count = 1
-    available_memory   = "512Mi"
+    available_cpu = "1"
+    available_memory   = "1Gi"
     timeout_seconds    = 60
   }
 }
