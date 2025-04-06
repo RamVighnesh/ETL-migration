@@ -11,7 +11,7 @@ terraform {
 resource "google_storage_bucket_object" "object" {
   name   = "86541697314.zip"
   bucket = "run-sources-project-beta-000002-us-central1"
-  source = services/usc1-api-to-bq-test/ # Add path to the zipped function source code
+  source = "services/usc1-api-to-bq-test/" # Add path to the zipped function source code
 }
 
 resource "google_cloudfunctions2_function" "default" {
