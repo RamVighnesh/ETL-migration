@@ -24,7 +24,7 @@ resource "google_cloudfunctions2_function" "default" {
     entry_point = "hello_http" # Set the entry point
     source {
       storage_source {
-        bucket = google_storage_bucket.default.name
+        bucket = "run-sources-project-beta-000002-us-central1"
         object = google_storage_bucket_object.object.name
       }
     }
