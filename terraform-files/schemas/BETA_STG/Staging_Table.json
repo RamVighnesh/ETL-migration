@@ -4,7 +4,7 @@
             {
                 "description": "Inherited unique identifier",
                 "name": "record_id",
-                "type": "STRING"
+                "type": "INTEGER"
             },
             {
                 "description": "Cleaned taxi vendor ID",
