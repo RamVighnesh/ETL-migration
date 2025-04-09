@@ -33,23 +33,13 @@
             },
             {
                 "description": "Cleaned pickup longitude",
-                "name": "pickup_longitude",
-                "type": "FLOAT"
-            },
-            {
-                "description": "Cleaned pickup latitude",
-                "name": "pickup_latitude",
-                "type": "FLOAT"
+                "name": "pickup_location",
+                "type": "string"
             },
             {
                 "description": "Cleaned dropoff longitude",
-                "name": "dropoff_longitude",
-                "type": "FLOAT"
-            },
-            {
-                "description": "Cleaned dropoff latitude",
-                "name": "dropoff_latitude",
-                "type": "FLOAT"
+                "name": "dropoff_location",
+                "type": "string"
             },
             {
                 "description": "Cleaned fare amount",
