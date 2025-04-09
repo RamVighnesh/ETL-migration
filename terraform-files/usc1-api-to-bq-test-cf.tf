@@ -7,9 +7,6 @@ terraform {
   }
 }
 
-
-
-
 resource "google_cloudfunctions2_function" "default" {
   name        = "usc1-api-to-bq-test"
   location    = var.region

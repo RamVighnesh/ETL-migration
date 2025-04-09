@@ -4,7 +4,6 @@ module "pilot_stg_dataset" {
   project_id = var.project_id
   location   = var.region
   dataset_id = local.datasets.pilot_dataset_stg
-
   tables = [
     for filepath in local.schemas.pilot_stg :
     {
