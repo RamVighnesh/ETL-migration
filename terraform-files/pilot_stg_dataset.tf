@@ -5,7 +5,7 @@ module "pilot_stg_dataset" {
   location   = var.region
   dataset_id = local.datasets.pilot_dataset_stg
   tables = [
-    for filepath in local.schemas.pilot_stg :
+    for filepath in local.stage_schemas.pilot_stg :
     {
       description = tostring(trimsuffix(basename(tostring(filepath)), ".json")),
       table_name  = tostring(trimsuffix(basename(tostring(filepath)), ".json")),
