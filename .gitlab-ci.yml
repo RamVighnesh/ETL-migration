@@ -81,8 +81,7 @@ teraform:
       - main
       # - merge_requests  # Trigger on merge requests
     changes:
-      - terraform-files/*  # Trigger job only if files in the dags/ directory change
-      - terraform-files/*/*
+      - terraform-files/** # Trigger job only if files in the dags/ directory change
 
 
 
