@@ -17,8 +17,8 @@ resource "google_cloudfunctions2_function" "default" {
     entry_point = "hello_http" # Set the entry point
     source {
       storage_source {
-        bucket = "run-sources-project-beta-000002-us-central1"
-        object = "services/usc1-api-to-bq-test/86541697314.zip"
+        bucket = "gcf-v2-sources-576949227194-us-central1"
+        object = "services/usc1-api-to-bq-test/function_source.zip"
       }
     }
   }
