@@ -2,137 +2,99 @@
     "schema": {
       "fields":[
         {
-          "name": "record_id",
-          "mode": "",
+          "name": "record_id",          
           "type": "STRING",
-          "description": "Unique identifier for each record",
-          "fields": []
+          "description": "Unique identifier for each record"
         },
         {
-          "name": "vendor_id",
-          "mode": "",
+          "name": "vendor_id",          
           "type": "STRING",
-          "description": "ID of the taxi vendor",
-          "fields": []
+          "description": "ID of the taxi vendor"
         },
         {
-          "name": "pickup_datetime",
-          "mode": "",
+          "name": "pickup_datetime",          
           "type": "STRING",
-          "description": "Timestamp when the trip started",
-          "fields": []
+          "description": "Timestamp when the trip started"
         },
         {
           "name": "dropoff_datetime",
-          "mode": "",
           "type": "STRING",
-          "description": "Timestamp when the trip ended",
-          "fields": []
+          "description": "Timestamp when the trip ended"
         },
         {
-          "name": "passenger_count",
-          "mode": "",
+          "name": "passenger_count",          
           "type": "STRING",
-          "description": "Number of passengers",
-          "fields": []
+          "description": "Number of passengers"
         },
         {
-          "name": "trip_distance",
-          "mode": "",
+          "name": "trip_distance",          
           "type": "STRING",
-          "description": "Distance of the trip in miles",
-          "fields": []
+          "description": "Distance of the trip in miles"
         },
         {
-          "name": "pickup_longitude",
-          "mode": "",
+          "name": "pickup_longitude",          
           "type": "STRING",
-          "description": "Longitude of pickup location",
-          "fields": []
+          "description": "Longitude of pickup location"
         },
         {
-          "name": "pickup_latitude",
-          "mode": "",
+          "name": "pickup_latitude",          
           "type": "STRING",
-          "description": "Latitude of pickup location",
-          "fields": []
+          "description": "Latitude of pickup location"
         },
         {
-          "name": "dropoff_longitude",
-          "mode": "",
+          "name": "dropoff_longitude",          
           "type": "STRING",
-          "description": "Longitude of dropoff location",
-          "fields": []
+          "description": "Longitude of dropoff location"
         },
         {
-          "name": "dropoff_latitude",
-          "mode": "",
+          "name": "dropoff_latitude",          
           "type": "STRING",
-          "description": "Latitude of dropoff location",
-          "fields": []
+          "description": "Latitude of dropoff location"
         },
         {
-          "name": "fare_amount",
-          "mode": "",
+          "name": "fare_amount",          
           "type": "STRING",
-          "description": "Fare charged for the trip",
-          "fields": []
+          "description": "Fare charged for the trip"
         },
         {
-          "name": "extra",
-          "mode": "",
+          "name": "extra",          
           "type": "STRING",
-          "description": "Extra charges",
-          "fields": []
+          "description": "Extra charges"
         },
         {
-          "name": "mta_tax",
-          "mode": "",
+          "name": "mta_tax",          
           "type": "STRING",
-          "description": "MTA tax",
-          "fields": []
+          "description": "MTA tax"
         },
         {
-          "name": "tip_amount",
-          "mode": "",
+          "name": "tip_amount",          
           "type": "STRING",
-          "description": "Tip amount",
-          "fields": []
+          "description": "Tip amount"
         },
         {
-          "name": "tolls_amount",
-          "mode": "",
+          "name": "tolls_amount",          
           "type": "STRING",
-          "description": "Tolls amount",
-          "fields": []
+          "description": "Tolls amount"
         },
         {
-          "name": "total_amount",
-          "mode": "",
+          "name": "total_amount",          
           "type": "STRING",
-          "description": "Total amount charged",
-          "fields": []
+          "description": "Total amount charged"
         },
         {
-          "name": "payment_type",
-          "mode": "",
+          "name": "payment_type",          
           "type": "STRING",
-          "description": "Payment method used (e.g., card, cash)",
-          "fields": []
+          "description": "Payment method used (e.g., card, cash)"
         },
         {
-          "name": "store_and_fwd_flag",
-          "mode": "",
+          "name": "store_and_fwd_flag",          
           "type": "STRING",
-          "description": "Indicates if the trip data was stored and forwarded",
-          "fields": []
+          "description": "Indicates if the trip data was stored and forwarded"
         },
         {
           "name": "event_timestamp",
-          "mode": "",
           "type": "STRING",
-          "description": "Records the load timestamp of the row",
-          "fields": []
+          "description": "Records the load timestamp of the row"
         }
       ]
     }
