@@ -88,11 +88,10 @@
             },
             {
               "name": "event_timestamp",
-              "mode": "",
               "type": "TIMESTAMP",
               "description": "Records the load timestamp of the row"
             }
-            ]
+        ]
     },
     "timePartitioning": {
     "type": "DAY",
