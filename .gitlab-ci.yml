@@ -4,6 +4,7 @@ stages:
   - build
   - test
   - deploy
+  - cf_file_sync
   - teraform
 
 #vars used in the pipeline
@@ -80,5 +81,27 @@ teraform:
       - main
       # - merge_requests  # Trigger on merge requests
     changes:
-      - terraform-files/*  # Trigger job only if files in the dags/ directory change
-      - terraform-files/schemas/*
+      - terraform-files/* # Trigger job only if files in the dags/ directory change
+      - terraform-files/*/*
+      - terraform-files/*/*/*
+
+
+
+
+cf_file_sync:
+  stage: cf_file_sync
+  image: google/cloud-sdk:latest
+  script:
+    - echo $gcp_key > gcp_key.json
+    - cat gcp_key.json
+    - gcloud auth activate-service-account --key-file=gcp_key.json
+    - gsutil -m rsync -r cloud-function-files/ gs://$gcp_cloudrun_f_bucket/services/
+    - echo "connection succesfull"
+  only:
+    refs:
+      - main
+      # - merge_requests  # Trigger on merge requests
+    changes:
+      - cloud-function-files/*
+      - cloud-function-files/*/*
+      - cloud-function-files/*/*/* # Trigger job only if files in the dags/ directory change
