@@ -89,7 +89,7 @@
             {
               "name": "event_timestamp",
               "type": "TIMESTAMP",
-              "description": "Records the load timestamp of the row"
+              "description": "Records the load timestamp of the rowof when it is inserted"
             }
         ]
     },
