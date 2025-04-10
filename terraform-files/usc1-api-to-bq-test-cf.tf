@@ -18,7 +18,7 @@ resource "google_cloudfunctions2_function" "default" {
     source {
       storage_source {
         bucket = "gcf-v2-sources-576949227194-us-central1"
-        object = "services/usc1-api-to-bq-test/function_source.zip"
+        object = "usc1-api-to-bq-test/function_source.zip"
       }
     }
   }
