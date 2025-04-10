@@ -23,9 +23,20 @@ locals {
 
   schemas = {
     pilot = fileset(path.module, "./schemas/BETA/*.json")
+    
+  }
+
+  stage_schemas = {
+    
     pilot_stg = fileset(path.module, "./schemas/BETA_STG/*.json")
+    
+  }
+
+  land_schemas = {
+    
     pilot_land = fileset(path.module, "./schemas/BETA_LAND/*.json")
   }
+  
 
   admins = {
     ram = "ramvighnesh124@gmail.com"
