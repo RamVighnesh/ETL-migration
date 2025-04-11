@@ -5,26 +5,6 @@ module "pilot_land_dataset" {
   location   = var.region
   dataset_id = local.datasets.pilot_dataset_land
 
-  tables = [
-    for filepath in local.land_schemas.pilot_land :
-    {
-      description = tostring(trimsuffix(basename(tostring(filepath)), ".json")),
-      table_name  = tostring(trimsuffix(basename(tostring(filepath)), ".json")),
-      table_id    = tostring(trimsuffix(basename(tostring(filepath)), ".json")),
-      schema      = jsonencode(jsondecode(file(filepath))["schema"]["fields"]),
-
-      range_partitioning = null,
-      expiration_time    = null,
-      time_partitioning  = lookup(jsondecode(file(filepath)), "timePartitioning",null) != null ? {
-        field = jsondecode(file(filepath)).timePartitioning.field
-        type =  jsondecode(file(filepath)).timePartitioning.type
-        expiration_ms = null
-        require_partition_filter = false
-      } : null,
-      clustering         = lookup(jsondecode(file(filepath)), "clustering",null) != null ? try(jsondecode(file(filepath))["clustering"]["fields"],[]) : [],
-      labels             = local.labels
-    }
-  ]
   dataset_labels = merge(local.labels, { "access" : "protected" })
   access         = []
 }
