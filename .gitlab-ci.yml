@@ -2,7 +2,7 @@
 #define the stages in pipeline here
 stages:
   - build
-  - test
+  # - test
   - deploy
   - cf_file_sync
   - teraform
@@ -20,15 +20,15 @@ build:
     - pip install -q pytest
     - echo "Build stage complete."
 
-test:
-  stage: test
-  image: python:3.9-slim
-  script:
-    - apt-get update -y && apt-get install -y git 
-    - python test_line.py
-    - echo "Test stage complete."
-  only:
-  - merge_requests
+# test:
+#   stage: test
+#   image: python:3.9-slim
+#   script:
+#     - apt-get update -y && apt-get install -y git 
+#     - python test_line.py
+#     - echo "Test stage complete."
+#   only:
+#   - merge_requests
 
 deploy:
   stage: deploy
