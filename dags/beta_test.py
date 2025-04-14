@@ -66,7 +66,7 @@ for procedure in proclist.itertuples():
     procedure_name = procedure["procedure_name"]
     dataset_name = procedure["dataset"]
 
-    with TaskGroup(group_id=f'dataset_name') as executegroup:
+    with TaskGroup(group_id=f'{dataset_name}') as executegroup:
 
         check_procedure_exists = BranchPythonoperator(
         task_id='check_procedure',
