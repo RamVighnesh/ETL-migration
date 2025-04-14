@@ -1,7 +1,7 @@
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
-from airflow.operators.python import PythonOperator, BranchPythonoperator, ShortCircuitOperator
+from airflow.operators.python import PythonOperator, BranchPythonOperator, ShortCircuitOperator
 from airflow.models import Variable
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryhook
 from airflow.operators.empty import EmptyOperator
@@ -32,8 +32,19 @@ dag = DAG('beta_move_dag',
 
 # proclist = {"name":"Data_load_stg", "dataset":"BETA_STG"}
 file = 'proc_list.csv'
-proclist = pd.read_csv(file,escapechar="\\", dtype=str)
 
+
+def gcs_to_df():
+    gcshook = GCSHook(gcp_conn_id=GCP_CONN_ID)
+    gcs_file_path = f'proc_list.csv'
+    file_bytes = gcshook.download(object_name=gcs_file_path)
+    file = file_bytes.decode('utf-8')
+    df = pd.read_csv(StringIO(file))
+    return df
+
+#proclist = pd.read_csv(file,escapechar="\\", dtype=str)
+
+proclist=gcs_to_df()
 
 start = EmptyOperator(
     task_id="Start"
@@ -68,7 +79,7 @@ for procedure in proclist.itertuples():
 
     with TaskGroup(group_id=f'{dataset_name}') as executegroup:
 
-        check_procedure_exists = BranchPythonoperator(
+        check_procedure_exists = BranchPythonOperator(
         task_id='check_procedure',
         python_callable=check_procedure,
         op_kwargs={
