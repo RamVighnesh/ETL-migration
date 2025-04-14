@@ -1,7 +1,7 @@
 #ci/cd pipeline is run on kubernetes a shared pod in started and each stages is run
 #define the stages in pipeline here
 stages:
-  - build
+  # - build
   # - test
   - deploy
   - cf_file_sync
@@ -12,13 +12,13 @@ variables:
   PROJECT_ID: "project-beta-000002"
 
 #each stage is defined here and pre defined image is pulled and used - is used to run commands
-build:
-  stage: build
-  image: python:3.9-slim
-  script:
-    - python --version
-    - pip install -q pytest
-    - echo "Build stage complete."
+# build:
+#   stage: build
+#   image: python:3.9-slim
+#   script:
+#     - python --version
+#     - pip install -q pytest
+#     - echo "Build stage complete."
 
 # test:
 #   stage: test
