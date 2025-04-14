@@ -22,6 +22,7 @@ default_args = {
     'retry_delay': timedelta(minutes=2),
 }
 
+
 dag = DAG(
     "beta_cf_trigger",
     default_args=default_args,
