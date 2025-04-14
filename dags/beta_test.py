@@ -23,7 +23,7 @@ default_args = {
 }
 
 dag = DAG('beta_move_dag',
-           schedule_interval=None
+           schedule_interval=None,
           default_args=default_args,
           catchup=False,
           template_searchpath=['./sqls']
