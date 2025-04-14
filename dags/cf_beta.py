@@ -1,84 +1,85 @@
 from airflow import DAG
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 from google.auth.transport.requests import AuthorizedSession
 from google.auth import impersonated_credentials
+from google.auth.transport.requests import Request
+from airflow.operators.python import PythonOperator
+from airflow.operators.empty import EmptyOperator
 from airflow.exceptions import AirflowFailException
 from airflow.models import Variable
+import requests
 import json
+import google.auth
 
 
-
-
-default_args={
+default_args = {
     'owner': 'airflow',
-    'depends_on_past': False, # does this dag depend on the previous run of the dag? best practice is to try have dags not depend on state or results of a previous run
-    'start_date': datetime(2025, 4, 13), # from what date to you want to pretend this dag was born on? by default airflow will try backfill - be careful
-    'email_on_failure': True, # should we send emails on failure?
-    'email': ['ratna.kumar62@gmail.com','ramvighnesh@gmail.com'], # who to email if fails i.e me :)
-    'retries': 1, # if fails how many times should we retry?
-    'retry_delay': timedelta(minutes=2), # if we need to retry how long should we wait before retrying?
+    'depends_on_past': False,
+    'start_date': datetime(2025, 4, 13),
+    'email_on_failure': True,
+    'email': ['ratna.kumar62@gmail.com', 'ramvighnesh@gmail.com'],
+    'retries': 1,
+    'retry_delay': timedelta(minutes=2),
 }
 
-dag=DAG("cf_beta_test",
-default_args=default_args,
-schedule_interval=None,
-catchup=False
+dag = DAG(
+    "beta_cf_trigger",
+    default_args=default_args,
+    schedule_interval=None,
+    catchup=False
 )
 
 
 def invoke_cloud_function(**kwargs):
-    scopes=["https://www.googleapis.com/auth/cloud-platform.read-only"]
     try:
-        credntials,project_id=google.auth.default(scopes=scopes)
-        variable=Variable.get("cf_airflow_variable")
-        var=json.loads(variable)
-        cf_variable=Variable.get("cf_variable")
-        cf_json=json.loads(cf_variable)
+        # Get the credentials
+        credentials, _ = google.auth.default()
+        
+        # If credentials do not support access tokens, we need to refresh them first
+        if not credentials.valid:
+            credentials.refresh(Request())  # Refresh the credentials if they're not valid
+        
+        variable = Variable.get("cf_airflow_variable")
+        var = json.loads(variable)
+        cf_variable = Variable.get("cf_variable")
+        cf_json = json.loads(cf_variable)
+        print(cf_json)
 
 
+        url = var["cf_url"]
 
-        #cf_json2={ "name": "Developer", "limit": 100 , "offset_value": 100, "dest_bucket" : "usc1-landing-archive" , "project_id" : "project-beta-000002", "dataset_table" : "BETA_LANDING.Landing_Table" }
+        # Fetch the access token
+        access_token = credentials.token
+        
+        # Use the token to set the Authorization header
+        headers = {"Authorization": f"Bearer {access_token}"}
 
-
-        url=var["cf_url"]
-
-        request=google.auth.transport.requests.Request()
-
-        target_credentials = impersonated_credentials.Credntials(
-            source_credentials=credntials,
-            target_scope=scopes,
-            target_principal=var['cf_service_account'],
-            lifetime=500
-
-        )
-        id_token_credentials=impersonated_credentials.IDTokenCredentials(target_credentials,
-        target_audience=url,
-        include_email=False,
-        quota_project_id= None)
-        resp =AuthorizedSession(id_token(credntials).request("POST",url=url,json=cf_json))
+        # Make the POST request to the Cloud Function
+        resp = requests.post(url, json=cf_json, headers=headers)
         print(resp.status_code)
-        response=str(resp.content)
+        response = str(resp.content)
         print(response)
-        if resp.status_code!=200:
-            raise AirflowFailException(str(response))
+
+        if resp.status_code != 200:
+            raise AirflowFailException(response) 
+        cf_json["offset_value"]=int(cf_json["offset_value"])+int(cf_json["limit"])
+        Variable.set("cf_variable",json.dumps(cf_json))
+
     except Exception as e:
         raise AirflowFailException(str(e))
 
 cf_invoke = PythonOperator(
-    task_id="cf_invoke"
+    task_id="cf_invoke",
     python_callable=invoke_cloud_function,
-    provide_context=True,
     dag=dag
 )
 
-
-start=EmptyOperator(
+start = EmptyOperator(
     task_id="start"
 )
 
-end=EmptyOperator(
+end = EmptyOperator(
     task_id="end"
 )
 
-
-start>>cf_invoke>>end
+start >> cf_invoke >> end
