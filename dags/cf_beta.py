@@ -27,7 +27,7 @@ default_args = {
 dag = DAG(
     "beta_cf_trigger",
     default_args=default_args,
-    schedule_interval=None,
+    schedule_interval= '*/10 * * * *',
     catchup=False
 )
 
