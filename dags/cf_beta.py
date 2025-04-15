@@ -81,7 +81,8 @@ cf_invoke = PythonOperator(
 trigger = TriggerDagRunOperator(
         task_id="trigger_target_dag",
         trigger_dag_id="beta_load",  
-        wait_for_completion=True
+        wait_for_completion=True,
+        dag=dag
     )
 
 start = EmptyOperator(
