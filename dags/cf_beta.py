@@ -92,4 +92,4 @@ end = EmptyOperator(
     task_id="end"
 )
 
-start >> cf_invoke >> end
+start >> trigger >> cf_invoke >> end
