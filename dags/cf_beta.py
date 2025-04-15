@@ -5,6 +5,7 @@ from google.auth import impersonated_credentials
 from google.auth.transport.requests import Request
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from airflow.exceptions import AirflowFailException
 from airflow.models import Variable
 import requests
@@ -74,6 +75,14 @@ cf_invoke = PythonOperator(
     python_callable=invoke_cloud_function,
     dag=dag
 )
+
+
+
+trigger = TriggerDagRunOperator(
+        task_id="trigger_target_dag",
+        trigger_dag_id="beta_load",  
+        wait_for_completion=True
+    )
 
 start = EmptyOperator(
     task_id="start"
