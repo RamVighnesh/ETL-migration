@@ -93,4 +93,4 @@ end = EmptyOperator(
     task_id="end"
 )
 
-start >> trigger >> cf_invoke >> end
+start >>  cf_invoke >> trigger  >> end
