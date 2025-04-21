@@ -22,4 +22,8 @@ etl-data-pipeline/
 ├── cloud-function/         # Python code to ingest data
 ├── dags/                   # Airflow DAGs to orchestrate ETL
 ├── looker/                 # Looker configs or screenshots
+├── images/                 # Diagrams or images
 └── README.md
+
+## 🛠️ System Architecture
+![SystemArchitecture](images/ETL_flow.gif)
