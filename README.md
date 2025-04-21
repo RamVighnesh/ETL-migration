@@ -24,6 +24,7 @@ etl-data-pipeline/
 ├── looker/                 # Looker configs or screenshots
 ├── images/                 # Diagrams or images
 └── README.md
+```
 
 ## 🛠️ System Architecture
 ![SystemArchitecture](images/ETL_flow.gif)
