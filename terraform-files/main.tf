@@ -39,7 +39,7 @@ locals {
   
 
   admins = {
-    ram = "ramvighnesh124@gmail.com"
-    ratna = "ratna.kumar62@gmailcom"
+    ram = "admin1@gmail.com"
+    ratna = "admin2@gmailcom"
   }
 }
