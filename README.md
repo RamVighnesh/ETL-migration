@@ -28,3 +28,7 @@ etl-data-pipeline/
 
 ## 🛠️ System Architecture
 ![SystemArchitecture](images/ETL_flow.gif)
+
+## Looker Dashboard
+Click Image to redirect looker dashboard
+[![Looker Dashboard Preview](looker/sample-report.png)](https://lookerstudio.google.com/s/nF6wZqgleu8)
